@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["M3LK3GJ574.app.lumitree.ios"],
+        "components": [{ "/": "/join/*", "comment": "Grove invites" }, { "/": "/t/*", "comment": "Tree certificates" }]
+      }
+    ]
+  }
+}

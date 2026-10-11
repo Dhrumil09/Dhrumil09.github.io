@@ -1,0 +1,23 @@
+:root { --ink: #17181a; --muted: #6f6e69; --paper: #f3f2ee; --card: #ffffff; --mint: #0e7a5c; --line: #e3e1da; --gold: #c9922a; }
+@media (prefers-color-scheme: dark) { :root { --ink: #e6fff7; --muted: #8fb3a8; --paper: #071512; --card: #0f2420; --mint: #3df2b8; --line: #1f3b35; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+main { max-width: 680px; margin: 0 auto; padding: 28px 16px 64px; }
+header { display: flex; justify-content: space-between; align-items: center; max-width: 680px; margin: 0 auto; padding: 20px 16px 0; }
+header a { color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: .02em; }
+nav a { color: var(--muted); margin-left: 16px; font-weight: 500; font-size: 14px; }
+h1 { font-family: "New York", "Iowan Old Style", Georgia, serif; font-weight: 400; font-size: clamp(30px, 6vw, 44px); line-height: 1.1; margin: 8px 0 12px; }
+h2 { font-size: 18px; margin: 28px 0 8px; }
+a { color: var(--mint); }
+.muted { color: var(--muted); }
+.eyebrow { color: var(--mint); font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 24px; }
+.card.guardian { border-color: var(--gold); }
+.thumbs { display: flex; gap: 10px; overflow-x: auto; margin: 16px 0; }
+.thumbs img { width: 150px; height: 190px; object-fit: cover; border-radius: 14px; flex: none; }
+dl { display: grid; gap: 10px; margin: 0; }
+dl div { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+dt { color: var(--muted); } dd { margin: 0; text-align: right; }
+.timeline { padding-left: 18px; color: var(--muted); }
+.button { display: inline-block; background: var(--ink); color: var(--paper); padding: 14px 22px; border-radius: 16px; text-decoration: none; font-weight: 700; }
+footer { text-align: center; color: var(--muted); font-size: 13px; padding: 24px 16px; }

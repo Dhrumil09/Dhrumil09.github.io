@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumitree</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module">
+import { fallbackRoute } from "/tree.js";
+const to = fallbackRoute(location.pathname);
+if (to) location.replace(to);
+else document.documentElement.classList.add("missing");
+</script>
+<style>main { visibility: hidden } .missing main { visibility: visible }</style>
+</head>
+<body>
+<header><a href="/">Lumitree</a><nav><a href="/support">Support</a><a href="/privacy">Privacy</a></nav></header>
+<main>
+<h1>Page not found</h1>
+<p class="muted">This link doesn't lead anywhere. <a href="/">Go to Lumitree</a>.</p>
+</main>
+<footer>Lumitree: Habit Garden · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
+</body>
+</html>

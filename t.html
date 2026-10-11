@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tree certificate · Lumitree</title>
+<meta name="description" content="A verified tree planted by a Lumitree gardener.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><a href="/">Lumitree</a><nav><a href="/support">Support</a><a href="/privacy">Privacy</a></nav></header>
+<main>
+<div id="tree"><p class="muted">Loading…</p></div>
+<script type="module">
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "/config.js";
+import { renderTree, treeIdFromPath } from "/tree.js";
+const el = document.getElementById("tree");
+const id = treeIdFromPath(location.pathname, location.search);
+let tree = null;
+if (id) {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/public_tree`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+      body: JSON.stringify({ p_public_id: id }),
+    });
+    if (res.ok) tree = await res.json();
+  } catch { /* shown as not found */ }
+}
+el.innerHTML = renderTree(tree, { storageUrl: SUPABASE_URL });
+if (tree) document.title = `${tree.planter}'s ${tree.species} · Lumitree`;
+</script>
+</main>
+<footer>Lumitree: Habit Garden · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
+</body>
+</html>

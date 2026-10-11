@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join a grove · Lumitree</title>
+<meta name="description" content="Your friend invited you to their Lumitree grove.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><a href="/">Lumitree</a><nav><a href="/support">Support</a><a href="/privacy">Privacy</a></nav></header>
+<main>
+<p class="eyebrow">Invitation</p>
+<h1>Join your friend's grove</h1>
+<p class="muted">If Lumitree is installed, this link opens it. Otherwise get the app, then enter this code under Friends → Join with a code:</p>
+<p style="font-size:32px;font-weight:800;letter-spacing:.2em" id="code">——————</p>
+<p><a class="button" id="store" href="#">Get Lumitree</a></p>
+<script type="module">
+import { APP_STORE_URL } from "/config.js";
+const m = /^\/join\/([A-Z2-9]{6})\/?$/i.exec(location.pathname);
+const q = new URLSearchParams(location.search).get("code");
+const code = m ? m[1] : (q && /^[A-Z2-9]{6}$/i.test(q) ? q : null);
+document.getElementById("code").textContent = code ? code.toUpperCase() : "——————";
+document.getElementById("store").href = APP_STORE_URL;
+</script>
+</main>
+<footer>Lumitree: Habit Garden · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
+</body>
+</html>
